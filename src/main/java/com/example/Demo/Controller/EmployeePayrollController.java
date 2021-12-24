@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.example.Demo.DTO.ResponseDTO;
 import com.example.Demo.Service.EmployeeService;
 import com.example.Demo.model.EmployeePayrollData;
@@ -72,7 +73,8 @@ public class EmployeePayrollController {
 	 */
 	
 	@PutMapping("/Edit")
-	public ResponseEntity<ResponseDTO> EditEmployeeData(@RequestBody EmployeePayrollData empdata){
+	public ResponseEntity<ResponseDTO> EditEmployeeData( ){
+		EmployeePayrollData empdata = null;
 		empdata = service.updateEmployeeData(empdata);
 		ResponseDTO respDTO = new ResponseDTO("Employee Data Updated Successfully",empdata);
 		return new ResponseEntity<ResponseDTO>(respDTO,HttpStatus.OK);
